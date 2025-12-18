@@ -8554,13 +8554,6 @@
         "meaning": "ghi, khắc, in sâu vào"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 1503,
         "word": "improve",
         "type": "v",
@@ -8729,13 +8722,6 @@
         "meaning": "công nghiệp, kỹ nghệ"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 1533,
         "word": "inevitably",
         "type": "adv",
@@ -8881,13 +8867,6 @@
         "type": "n",
         "phonetic": "/ɪnstrʌkʃn/",
         "meaning": "sự dạy, tài liệu cung cấp"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 1562,
@@ -9044,13 +9023,6 @@
         "meaning": "điều tra, nghiên cứu"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 1591,
         "word": "investigation",
         "type": "n",
@@ -9080,10 +9052,17 @@
     },
     {
         "id": 1595,
-        "word": "tâm",
-        "type": "trí.",
-        "phonetic": "/involved/",
-        "meaning": "in để hết tâm trí"
+        "word": "involve",
+        "type": "v",
+        "phonetic": "/in´vɔlv/",
+        "meaning": "bao gồm, liên quan"
+    },
+    {
+        "id": 1596,
+        "word": "involved",
+        "type": "adj",
+        "phonetic": "/in´vɔlvd/",
+        "meaning": "rắc rối, phức tạp"
     },
     {
         "id": 1597,
@@ -9196,13 +9175,6 @@
         "type": "adv",
         "phonetic": "/ˈdʒɔɪntli/",
         "meaning": "cùng nhau, cùng chung"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 1619,
@@ -9357,13 +9329,6 @@
         "type": "n",
         "phonetic": "/kaindnis/",
         "meaning": "sự tử tế, lòng tốt"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 1647,
@@ -9576,11 +9541,11 @@
         "meaning": "lɑ:f cười; tiếng cười"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
+        "id": 1679,
+        "word": "laughter",
+        "type": "n",
+        "phonetic": "/ˈlæftər/",
+        "meaning": "tiếng cười"
     },
     {
         "id": 1680,
@@ -9751,11 +9716,25 @@
         "meaning": "thư viện"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
+        "id": 1709,
+        "word": "license",
+        "type": "n,",
+        "phonetic": "/v/",
+        "meaning": "ˈlaɪsns giấy phép; cho phép, cấp phép"
+    },
+    {
+        "id": 1710,
+        "word": "lick",
+        "type": "v,",
+        "phonetic": "/n/",
+        "meaning": "lik liếm; liếm"
+    },
+    {
+        "id": 1711,
+        "word": "lid",
+        "type": "n",
+        "phonetic": "/lid/",
+        "meaning": "nắp, vung"
     },
     {
         "id": 1712,
@@ -9876,13 +9855,7 @@
         "phonetic": "/ləʊk(ə)l/",
         "meaning": "địa phương, bộ phận, cục bộ"
     },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
+
     {
         "id": 1736,
         "word": "locally",
@@ -10073,13 +10046,6 @@
         "meaning": "cục, tảng, miếng; cái bướu"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 1766,
         "word": "lunch",
         "type": "n",
@@ -10262,11 +10228,11 @@
         "meaning": "n mɑ:tʃ tháng ba"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
+        "id": 1795,
+        "word": "mark",
+        "type": "n,",
+        "phonetic": "/v/",
+        "meaning": "mɑ:k dấu, nhãn; đánh dấu, ghi dấu"
     },
     {
         "id": 1796,
@@ -10421,13 +10387,6 @@
         "type": "n",
         "phonetic": "/mi:t/",
         "meaning": "thịt"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 1825,
@@ -10605,11 +10564,25 @@
         "meaning": "sữa"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
+        "id": 1854,
+        "word": "mill",
+        "type": "n",
+        "phonetic": "/mil/",
+        "meaning": "cối xay, nhà máy"
+    },
+    {
+        "id": 1855,
+        "word": "million",
+        "type": "n",
+        "phonetic": "/miljən/",
+        "meaning": "triệu"
+    },
+    {
+        "id": 1856,
+        "word": "mind",
+        "type": "n,",
+        "phonetic": "/v/",
+        "meaning": "maind trí tuệ, tâm trí; chú ý, để ý"
     },
     {
         "id": 1857,
@@ -10623,7 +10596,7 @@
         "word": "mineral",
         "type": "n,",
         "phonetic": "/adj/",
-        "meaning": "ˈmɪnərəl , ˈmɪnrəl công nhân, thợ mỏ; khoáng"
+        "meaning": "công nhân, thợ mỏ"
     },
     {
         "id": 1860,
@@ -10773,11 +10746,11 @@
         "meaning": "mặt trăng"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
+        "id": 1884,
+        "word": "moral",
+        "type": "adj,",
+        "phonetic": "/ˈmɔrəl/",
+        "meaning": "đạo đức; thuộc về đạo đức"
     },
     {
         "id": 1885,
@@ -10932,13 +10905,6 @@
         "type": "n",
         "phonetic": "/mju:ziəm/",
         "meaning": "bảo tàng"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 1914,
@@ -11165,13 +11131,6 @@
         "meaning": "cháu trai (con anh, chị, em)"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 1947,
         "word": "nerve",
         "type": "n",
@@ -11367,13 +11326,7 @@
         "phonetic": "/nɔt/",
         "meaning": "không"
     },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
+
     {
         "id": 1980,
         "word": "nothing",
@@ -11550,13 +11503,6 @@
         "meaning": "kỳ quặc, kỳ cục, lẻ (số)"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2009,
         "word": "of",
         "type": "prep",
@@ -11718,13 +11664,6 @@
         "meaning": "địch thủ, đối thủ, kẻ thù"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2040,
         "word": "opposed",
         "type": "to",
@@ -11828,13 +11767,6 @@
         "type": "adv",
         "phonetic": "/¸autdɔ:z/",
         "meaning": "ở ngoài trời, ở ngoài nhà"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 2064,
@@ -12012,13 +11944,6 @@
         "meaning": "quần lót, quần đùi dài"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2094,
         "word": "paper",
         "type": "n",
@@ -12164,13 +12089,6 @@
         "type": "n",
         "phonetic": "/pi:k/",
         "meaning": "lưỡi trai; đỉnh, chóp"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 2123,
@@ -12362,13 +12280,6 @@
         "meaning": "v ´foutə¸gra:f ảnh, bức ảnh; chụp ảnh"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2154,
         "word": "photographer",
         "type": "n",
@@ -12502,13 +12413,6 @@
         "meaning": "sự lập kế hoạch, sự quy hoạch"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2180,
         "word": "plant",
         "type": "n,",
@@ -12605,13 +12509,6 @@
         "type": "n",
         "phonetic": "/pol.ə/",
         "meaning": "si chính sách"
-    },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
     },
     {
         "id": 2207,
@@ -12761,13 +12658,6 @@
         "meaning": "pao - đơn vị đo lường"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2235,
         "word": "pour",
         "type": "v",
@@ -12914,13 +12804,7 @@
         "phonetic": "/prizju:məbli/",
         "meaning": "có thể được, có lẽ"
     },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
+
     {
         "id": 2263,
         "word": "pretend",
@@ -13097,13 +12981,6 @@
         "meaning": "tiến lên, theo duổi, tiếp diễn"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2293,
         "word": "produce",
         "type": "v",
@@ -13250,13 +13127,7 @@
         "phonetic": "/prətek∫n/",
         "meaning": "sự bảo vệ, sự che chở"
     },
-    {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
+    
     {
         "id": 2323,
         "word": "proud",
@@ -13405,11 +13276,18 @@
         "meaning": "đặt, để, cho vào"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
+        "id": 2348,
+        "word": "qualification",
+        "type": "n",
+        "phonetic": "/¸kwɔlifi´keiʃən/",
+        "meaning": "tư cách, khả năng, trình độ"
+    },
+    {
+        "id": 2349,
+        "word": "qualifiedly",
+        "type": "adv",
+        "phonetic": "/´kwɔlifiidli/",
+        "meaning": "một cách có tư cách, điều kiện"
     },
     {
         "id": 2350,
@@ -13615,13 +13493,6 @@
         "meaning": "đến, đi đến, tới"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2382,
         "word": "react",
         "type": "v",
@@ -13797,13 +13668,6 @@
         "meaning": "giảm, giảm bớt"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2412,
         "word": "reduction",
         "type": "n",
@@ -13958,13 +13822,6 @@
         "meaning": "làm giảm, bớt căng thẳng"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
-    },
-    {
         "id": 2440,
         "word": "relevant",
         "type": "adj",
@@ -14091,11 +13948,25 @@
         "meaning": "thay thế"
     },
     {
-        "id": 3000,
-        "word": "từ",
-        "type": "VỰNG",
-        "phonetic": "/TIẾNG/",
-        "meaning": "ANH THÔNG DỤNG NHẤT"
+        "id": 2463,
+        "word": "reply",
+        "type": "v,",
+        "phonetic": "/n/",
+        "meaning": "rɪˈplaɪ trả lời; sự trả lời"
+    },
+    {
+        "id": 2464,
+        "word": "report",
+        "type": "n,",
+        "phonetic": "/v/",
+        "meaning": "ri´pɔ:t bản báo cáo; báo cáo, tường trình"
+    },
+    {
+        "id": 2465,
+        "word": "represent",
+        "type": "v",
+        "phonetic": "/reprɪˈzent/",
+        "meaning": "miêu tả, hình dung; đại diện"
     },
     {
         "id": 2466,
@@ -19500,5 +19371,51 @@
         "type": "n",
         "phonetic": "/zoun/",
         "meaning": "khu vực, miền, vùng"
+    },
+    {
+        "id": 3397,
+        "word": "zoo",
+        "type": "n",
+        "phonetic": "/zu:/",
+        "meaning": "sở thú"
+    },
+    {
+        "id": 3398,
+        "word": "zoological",
+        "type": "adj",
+        "phonetic": "/¸zouə´lɔdʒikəl/",
+        "meaning": "thuộc về động vật học"
+    },
+    {
+        "id": 3399,
+        "word": "zoology",
+        "type": "n",
+        "phonetic": "/zou´lɔdʒi/",
+        "meaning": "động vật học"
+
+
+    },
+    {
+        "id": 3400,
+        "word": "zip",
+        "type": "v",
+        "phonetic": "/zip/",
+        "meaning": "kéo khóa, đóng khóa"
+    },
+    {
+        "id": 3401,
+        "word": "zone",
+        "type": "n",
+        "phonetic": "/zoun/",
+        "meaning": "khu vực, miền, vùng"
+    },
+    {
+        "id" : 3402,
+        "word":"wonderful",
+        "type":"adj",
+        "phonetic":"/ˈwʌndərfl/",
+        "meaning":"tuyệt vời, kỳ diệu"
     }
+
+
 ]

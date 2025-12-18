@@ -26,7 +26,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             width: 100%;
-            max-width: 800px;
+            max-width: 900px;
             padding: 30px;
             position: relative;
             overflow: hidden;
@@ -65,6 +65,7 @@
             gap: 10px;
             justify-content: center;
             margin: 15px 0;
+            flex-wrap: wrap;
         }
 
         .mode-btn {
@@ -207,6 +208,82 @@
             background: #e74c3c;
             color: white;
             border-color: #c0392b;
+        }
+
+        /* Style cho chế độ viết từ */
+        .writing-mode-container {
+            display: none;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .writing-prompt {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .writing-input-container {
+            margin: 25px 0;
+        }
+
+        .writing-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 18px 25px;
+            font-size: 24px;
+            border: 3px solid #3498db;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: #2c3e50;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .writing-input:focus {
+            border-color: #2ecc71;
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+        }
+
+        .writing-input.correct {
+            border-color: #2ecc71;
+            background-color: #d4edda;
+        }
+
+        .writing-input.incorrect {
+            border-color: #e74c3c;
+            background-color: #f8d7da;
+        }
+
+        .writing-hint {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #7f8c8d;
+        }
+
+        .check-writing-btn {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .check-writing-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .check-writing-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .feedback {
@@ -456,6 +533,11 @@
                 font-size: 16px;
             }
             
+            .writing-input {
+                font-size: 20px;
+                padding: 15px;
+            }
+            
             .action-buttons {
                 flex-direction: column;
             }
@@ -476,12 +558,13 @@
     <div class="quiz-container">
         <div class="header">
             <h1>📚 Quiz Từ Vựng Tiếng Anh</h1>
-            <p>Chọn nghĩa tiếng Việt đúng của từ tiếng Anh</p>
-            <div class="question-limit">20 từ / bài kiểm tra</div>
+            <p>Chọn chế độ luyện tập từ vựng</p>
+            <div class="question-limit">50 từ / bài kiểm tra</div>
             
             <div class="mode-selector">
-                <button class="mode-btn active" id="normalMode">Bình thường</button>
-                <button class="mode-btn" id="timedMode">Có thời gian ⏱️</button>
+                <button class="mode-btn active" id="normalMode">Chọn nghĩa</button>
+                <button class="mode-btn" id="writingMode">Viết từ ✍️</button>
+                <button class="mode-btn" id="timedMode">Tính giờ ⏱️</button>
             </div>
         </div>
 
@@ -518,7 +601,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="questionContainer">
                 <div class="question-number" id="questionNumber">Câu hỏi #1</div>
                 <div class="question-text" id="questionText"></div>
                 
@@ -528,8 +611,22 @@
                 </div>
             </div>
 
+            <!-- Container cho chế độ chọn nghĩa -->
             <div class="options-container" id="optionsContainer">
                 <!-- Options will be generated here -->
+            </div>
+
+            <!-- Container cho chế độ viết từ -->
+            <div class="writing-mode-container" id="writingModeContainer">
+                <div class="writing-prompt" id="writingPrompt"></div>
+                <div class="writing-input-container">
+                    <input type="text" class="writing-input" id="writingInput" 
+                           placeholder="Nhập từ tiếng Anh..." autocomplete="off">
+                    <div class="writing-hint" id="writingHint"></div>
+                </div>
+                <button class="check-writing-btn" id="checkWritingBtn">
+                    Kiểm tra
+                </button>
             </div>
 
             <div class="feedback" id="feedback"></div>
@@ -547,7 +644,7 @@
         <div class="quiz-complete" id="quizComplete">
             <h2>🎉 Hoàn thành!</h2>
             <p id="completionMessage">Bạn đã hoàn thành bài quiz</p>
-            <div class="final-score" id="finalScore">0/200</div>
+            <div class="final-score" id="finalScore">0/500</div>
             <p id="finalMessage"></p>
             
             <div class="practice-section" id="practiceSection">
@@ -585,10 +682,11 @@
         let selectedAnswer = null;
         let isAnswered = false;
         let wrongAnswers = []; // Lưu các câu trả lời sai
-        const QUESTIONS_PER_QUIZ = 20;
+        const QUESTIONS_PER_QUIZ = 50; // Tăng từ 20 lên 50
         
-        // Biến cho chế độ tính giờ
+        // Biến cho các chế độ
         let isTimedMode = false;
+        let isWritingMode = false;
         let timer = null;
         let timeLeft = 60;
         let totalTimeUsed = 0;
@@ -612,6 +710,11 @@
             document.getElementById('quizComplete').style.display = 'none';
             document.getElementById('practiceSection').style.display = 'none';
             document.getElementById('noPracticeSection').style.display = 'none';
+            
+            // Reset input viết từ
+            const writingInput = document.getElementById('writingInput');
+            writingInput.value = '';
+            writingInput.className = 'writing-input';
             
             // Dừng timer nếu có
             if (timer) {
@@ -708,12 +811,25 @@
             if (isAnswered) return;
             
             isAnswered = true;
-            const allButtons = document.querySelectorAll('.option-btn');
-            allButtons.forEach(btn => btn.disabled = true);
+            
+            // Xử lý theo chế độ
+            if (isWritingMode) {
+                document.getElementById('writingInput').disabled = true;
+                document.getElementById('checkWritingBtn').disabled = true;
+            } else {
+                const allButtons = document.querySelectorAll('.option-btn');
+                allButtons.forEach(btn => btn.disabled = true);
+            }
             
             const currentWord = quizVocabularyData[currentQuestionIndex];
             const feedbackElement = document.getElementById('feedback');
-            feedbackElement.textContent = `⏰ Hết giờ! "${currentWord.word}" có nghĩa là "${currentWord.meaning}"`;
+            
+            if (isWritingMode) {
+                feedbackElement.textContent = `⏰ Hết giờ! Từ cần tìm là "${currentWord.word}" (${currentWord.meaning})`;
+            } else {
+                feedbackElement.textContent = `⏰ Hết giờ! "${currentWord.word}" có nghĩa là "${currentWord.meaning}"`;
+            }
+            
             feedbackElement.className = 'feedback incorrect';
             feedbackElement.style.display = 'block';
             
@@ -723,7 +839,8 @@
                 meaning: currentWord.meaning,
                 type: currentWord.type,
                 phonetic: currentWord.phonetic,
-                example: currentWord.example
+                example: currentWord.example,
+                userAnswer: isWritingMode ? '(Hết giờ)' : selectedAnswer
             });
             
             document.getElementById('showAnswerBtn').disabled = false;
@@ -741,9 +858,14 @@
             const wordTypeElement = document.getElementById('wordType');
             const phoneticElement = document.getElementById('wordPhonetic');
             const optionsContainer = document.getElementById('optionsContainer');
+            const writingContainer = document.getElementById('writingModeContainer');
+            const writingPrompt = document.getElementById('writingPrompt');
+            const writingInput = document.getElementById('writingInput');
+            const writingHint = document.getElementById('writingHint');
             const feedbackElement = document.getElementById('feedback');
             const showAnswerBtn = document.getElementById('showAnswerBtn');
             const nextBtn = document.getElementById('nextBtn');
+            const checkWritingBtn = document.getElementById('checkWritingBtn');
 
             // Reset
             isAnswered = false;
@@ -751,44 +873,84 @@
             feedbackElement.style.display = 'none';
             showAnswerBtn.disabled = true;
             nextBtn.disabled = true;
+            writingInput.value = '';
+            writingInput.className = 'writing-input';
+            writingInput.disabled = false;
+            checkWritingBtn.disabled = false;
 
-            // Cập nhật câu hỏi
-            document.getElementById('questionNumber').textContent = `Câu hỏi #${currentQuestionIndex + 1}/${quizVocabularyData.length}`;
-            questionElement.textContent = question.word;
-            wordTypeElement.textContent = getFullType(question.type);
-            phoneticElement.textContent = question.phonetic ? `/ ${question.phonetic} /` : '';
-
-            // Tạo đáp án
-            const correctAnswer = question.meaning;
-            let incorrectAnswers = [];
-            
-            // Lấy nghĩa của các từ khác làm đáp án sai
-            allVocabularyData.forEach(item => {
-                if (item.id !== question.id && item.meaning !== correctAnswer) {
-                    incorrectAnswers.push(item.meaning);
+            // Hiển thị giao diện theo chế độ
+            if (isWritingMode) {
+                // Chế độ viết từ
+                optionsContainer.style.display = 'none';
+                writingContainer.style.display = 'block';
+                
+                document.getElementById('questionNumber').textContent = `Câu hỏi #${currentQuestionIndex + 1}/${quizVocabularyData.length}`;
+                writingPrompt.textContent = `Từ tiếng Anh của "${question.meaning}" là gì?`;
+                wordTypeElement.textContent = getFullType(question.type);
+                phoneticElement.textContent = '';
+                questionElement.textContent = ''; // Ẩn từ trong chế độ viết
+                
+                // Hiển thị gợi ý
+                if (question.phonetic) {
+                    writingHint.textContent = `Phát âm: /${question.phonetic}/`;
+                } else {
+                    writingHint.textContent = 'Loại từ: ' + getFullType(question.type);
                 }
-            });
-            
-            // Lấy 3 đáp án sai ngẫu nhiên
-            shuffleArray(incorrectAnswers);
-            incorrectAnswers = incorrectAnswers.slice(0, 3);
-            
-            // Tạo mảng đáp án và trộn
-            let allAnswers = [correctAnswer, ...incorrectAnswers];
-            shuffleArray(allAnswers);
+                
+                // Focus vào ô input
+                setTimeout(() => {
+                    writingInput.focus();
+                }, 100);
+                
+                // Xử lý sự kiện Enter trong ô input
+                writingInput.onkeypress = function(e) {
+                    if (e.key === 'Enter') {
+                        checkWritingAnswer();
+                    }
+                };
+            } else {
+                // Chế độ chọn nghĩa
+                optionsContainer.style.display = 'grid';
+                writingContainer.style.display = 'none';
+                
+                // Cập nhật câu hỏi
+                document.getElementById('questionNumber').textContent = `Câu hỏi #${currentQuestionIndex + 1}/${quizVocabularyData.length}`;
+                questionElement.textContent = question.word;
+                wordTypeElement.textContent = getFullType(question.type);
+                phoneticElement.textContent = question.phonetic ? `/ ${question.phonetic} /` : '';
 
-            // Hiển thị đáp án
-            optionsContainer.innerHTML = '';
-            allAnswers.forEach((answer, index) => {
-                const button = document.createElement('button');
-                button.className = 'option-btn';
-                button.innerHTML = `
-                    <span style="margin-right: 10px;">${String.fromCharCode(65 + index)}.</span>
-                    ${answer}
-                `;
-                button.addEventListener('click', () => selectAnswer(answer, correctAnswer, button));
-                optionsContainer.appendChild(button);
-            });
+                // Tạo đáp án
+                const correctAnswer = question.meaning;
+                let incorrectAnswers = [];
+                
+                // Lấy nghĩa của các từ khác làm đáp án sai
+                allVocabularyData.forEach(item => {
+                    if (item.id !== question.id && item.meaning !== correctAnswer) {
+                        incorrectAnswers.push(item.meaning);
+                    }
+                });
+                
+                // Lấy 3 đáp án sai ngẫu nhiên
+                shuffleArray(incorrectAnswers);
+                incorrectAnswers = incorrectAnswers.slice(0, 3);
+                
+                // Tạo mảng đáp án và trộn
+                let allAnswers = [correctAnswer, ...incorrectAnswers];
+                shuffleArray(allAnswers);
+
+                // Hiển thị đáp án
+                optionsContainer.innerHTML = '';
+                allAnswers.forEach((answer, index) => {
+                    const button = document.createElement('button');
+                    button.className = 'option-btn';
+                    button.innerHTML = `
+                        <span style="margin-right: 10px;">${String.fromCharCode(65 + index)}.</span>
+                        ${answer}
+                    `;
+                    button.addEventListener('click', () => selectAnswer(answer, correctAnswer, button));
+                    optionsContainer.appendChild(button);
+                });
+            }
 
             updateProgressBar();
             updateStats();
@@ -852,6 +1014,66 @@
             updateStats();
         }
 
+        // Hàm kiểm tra đáp án trong chế độ viết từ
+        function checkWritingAnswer() {
+            if (isAnswered) return;
+            
+            const currentWord = quizVocabularyData[currentQuestionIndex];
+            const userInput = document.getElementById('writingInput').value.trim();
+            const feedbackElement = document.getElementById('feedback');
+            const showAnswerBtn = document.getElementById('showAnswerBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const writingInput = document.getElementById('writingInput');
+            
+            if (!userInput) {
+                alert('Vui lòng nhập từ tiếng Anh!');
+                writingInput.focus();
+                return;
+            }
+            
+            isAnswered = true;
+            
+            // Dừng timer nếu đang chạy
+            if (isTimedMode) {
+                clearInterval(timer);
+                document.getElementById('timer').style.animation = 'none';
+            }
+            
+            // Kiểm tra đáp án (không phân biệt hoa thường)
+            const isCorrect = userInput.toLowerCase() === currentWord.word.toLowerCase();
+            
+            if (isCorrect) {
+                score += 10;
+                correctCount++;
+                writingInput.classList.add('correct');
+                feedbackElement.textContent = `✅ Đúng! "${currentWord.word}" có nghĩa là "${currentWord.meaning}"`;
+                feedbackElement.className = 'feedback correct';
+            } else {
+                writingInput.classList.add('incorrect');
+                feedbackElement.textContent = `❌ Sai! Từ đúng là "${currentWord.word}" (${currentWord.meaning})`;
+                feedbackElement.className = 'feedback incorrect';
+                
+                // Lưu từ sai vào danh sách
+                wrongAnswers.push({
+                    word: currentWord.word,
+                    meaning: currentWord.meaning,
+                    type: currentWord.type,
+                    phonetic: currentWord.phonetic,
+                    example: currentWord.example,
+                    userAnswer: userInput
+                });
+            }
+            
+            // Vô hiệu hóa input và nút kiểm tra
+            writingInput.disabled = true;
+            document.getElementById('checkWritingBtn').disabled = true;
+            
+            feedbackElement.style.display = 'block';
+            showAnswerBtn.disabled = false;
+            nextBtn.disabled = false;
+            updateStats();
+        }
+
         function updateProgressBar() {
             const progress = ((currentQuestionIndex + 1) / quizVocabularyData.length) * 100;
             document.getElementById('progressBar').style.width = `${progress}%`;
@@ -904,6 +1126,15 @@
                 }
             }
             
+            // Thêm thông tin chế độ
+            if (isWritingMode) {
+                message += `<br>📝 Chế độ: Viết từ`;
+            } else if (isTimedMode) {
+                message += `<br>⏱️ Chế độ: Tính giờ`;
+            } else {
+                message += `<br>🔤 Chế độ: Chọn nghĩa`;
+            }
+            
             finalMessageElement.innerHTML = message;
             completionMessageElement.textContent = completionMsg;
             
@@ -925,12 +1156,18 @@
             wrongAnswers.forEach((item, index) => {
                 const wordItem = document.createElement('div');
                 wordItem.className = 'wrong-word-item';
+                
+                let userAnswerDisplay = '';
+                if (item.userAnswer) {
+                    userAnswerDisplay = `<div>Bạn ${isWritingMode ? 'viết' : 'chọn'}: <span style="color: #e74c3c; font-weight: 600;">${item.userAnswer}</span></div>`;
+                }
+                
                 wordItem.innerHTML = `
                     <strong>${index + 1}. ${item.word}</strong>
                     <div>Loại từ: ${getFullType(item.type)}</div>
                     <div>Phát âm: ${item.phonetic || 'Không có'}</div>
-                    <div>Nghĩa đúng: <span style="color: #2ecc71; font-weight: 600;">${item.meaning}</span></div>
-                    ${item.userAnswer ? `<div>Bạn chọn: <span style="color: #e74c3c; font-weight: 600;">${item.userAnswer}</span></div>` : ''}
+                    <div>Nghĩa: <span style="color: #2ecc71; font-weight: 600;">${item.meaning}</span></div>
+                    ${userAnswerDisplay}
                     ${item.example ? `<div class="word-example">Ví dụ: ${item.example}</div>` : ''}
                 `;
                 wrongWordsList.appendChild(wordItem);
@@ -1028,16 +1265,31 @@
             
             const currentWord = quizVocabularyData[currentQuestionIndex];
             const feedbackElement = document.getElementById('feedback');
-            feedbackElement.innerHTML = `
+            
+            let detailContent = `
                 <strong>📖 Chi tiết từ vựng:</strong><br><br>
                 <strong>Từ:</strong> ${currentWord.word}<br>
                 <strong>Loại từ:</strong> ${getFullType(currentWord.type)}<br>
-                ${currentWord.phonetic ? `<strong>Phát âm:</strong> /${currentWord.phonetic}/<br>` : ''}
-                <strong>Nghĩa:</strong> ${currentWord.meaning}<br>
-                ${currentWord.example ? `<strong>Ví dụ:</strong> ${currentWord.example}<br>` : ''}
-                ${isTimedMode ? `<br><strong>⏱️ Thời gian còn lại:</strong> ${timeLeft} giây` : ''}
             `;
+            
+            if (currentWord.phonetic) {
+                detailContent += `<strong>Phát âm:</strong> /${currentWord.phonetic}/<br>`;
+            }
+            
+            detailContent += `<strong>Nghĩa:</strong> ${currentWord.meaning}<br>`;
+            
+            if (currentWord.example) {
+                detailContent += `<strong>Ví dụ:</strong> ${currentWord.example}<br>`;
+            }
+            
+            if (isTimedMode) {
+                detailContent += `<br><strong>⏱️ Thời gian còn lại:</strong> ${timeLeft} giây`;
+            }
+            
+            feedbackElement.innerHTML = detailContent;
         });
+
+        document.getElementById('checkWritingBtn').addEventListener('click', checkWritingAnswer);
 
         document.getElementById('restartBtn').addEventListener('click', () => {
             initQuiz();
@@ -1054,14 +1306,29 @@
         // Xử lý chế độ
         document.getElementById('normalMode').addEventListener('click', () => {
             isTimedMode = false;
+            isWritingMode = false;
             document.getElementById('normalMode').classList.add('active');
+            document.getElementById('writingMode').classList.remove('active');
             document.getElementById('timedMode').classList.remove('active');
+            initQuiz();
+        });
+
+        document.getElementById('writingMode').addEventListener('click', () => {
+            isTimedMode = false;
+            isWritingMode = true;
+            document.getElementById('writingMode').classList.add('active');
+            document.getElementById('normalMode').classList.remove('active');
+            document.getElementById('timedMode').classList.remove('active');
+            initQuiz();
         });
 
         document.getElementById('timedMode').addEventListener('click', () => {
             isTimedMode = true;
+            isWritingMode = false;
             document.getElementById('timedMode').classList.add('active');
             document.getElementById('normalMode').classList.remove('active');
+            document.getElementById('writingMode').classList.remove('active');
+            initQuiz();
         });
 
         // Khởi động

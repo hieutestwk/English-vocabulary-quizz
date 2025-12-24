@@ -7454,13 +7454,7 @@
         "phonetic": "/gз:lfrend/",
         "meaning": "bạn gái, người yêu"
     },
-    {
-        "id": 1306,
-        "word": "phát.",
-        "type": "give",
-        "phonetic": "/sth/",
-        "meaning": "out: chia, phân phối"
-    },
+
     {
         "id": 1307,
         "word": "give",
@@ -14185,13 +14179,7 @@
         "phonetic": "/v/",
         "meaning": "riɳ chiếc nhẫn, đeo nhẫn cho ai"
     },
-    {
-        "id": 2517,
-        "word": "dậy,",
-        "type": "đứng",
-        "phonetic": "/lên,/",
-        "meaning": "mọc (mặt trời),"
-    },
+
     {
         "id": 2518,
         "word": "risk",
